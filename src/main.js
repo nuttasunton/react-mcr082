@@ -3,25 +3,21 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
 
-class App extends Component {
-  render() {
-    return (
-        <div>
-            Hello my name is MCR082
-            <form>
-                <input type="text" name="" />
-                <button type="submmit">Add</button>
-            </form>
+import TodoForm from './components/todo-form.js'
+import TodoList from './components/todo.list.js'
 
-            <h1> Todos </h1>
-            <ul>
-                <li> List </li>
-                <li> List </li>
-                <li> List </li>
-            </ul>
-        </div>
-    )
-  }
+class App extends Component {
+    render() {
+        return (
+            <div>
+                Hello my name is MCR082
+                < TodoForm />
+
+                <h1> Todos </h1>
+                < TodoList />
+            </div>
+        )
+    }
 }
 
 render(<App />, document.getElementById('app'))
