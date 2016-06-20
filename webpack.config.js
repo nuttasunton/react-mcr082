@@ -8,5 +8,10 @@ module.exports = {
     },
     devServer: {
         contentBase: './public',
+    },
+    module: {
+        loaders: [
+            { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
+        ]
     }
 }
