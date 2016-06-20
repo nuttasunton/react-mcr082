@@ -5,8 +5,10 @@ export default class ToDoList extends Component {
     renderList() {
         return this.props.todos.map( (todo, index) => {
             return (
-                <li key={todo.id}> {todo.text}
-                 <button onClick = {this.props.onDelete.bind(null, index)}>del</button> </li>
+                <li key={todo.id}>
+                    {todo.text}
+                    <button onClick = {this.props.onDelete.bind(null, index)}>del</button>
+                </li>
             )
         })
     }
