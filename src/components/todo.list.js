@@ -13,10 +13,10 @@ export default class ToDoList extends Component {
                 <li key={todo.id}
                     className="list-group-item"
                     onClick = {this.props.onAddStyle.bind(null, todo)}
-                    style={(todo.lineThrough)? lineThrough:{}}
+                    style={(todo.done)? lineThrough:{}}
                 >
                     {todo.text}
-                    <button  className="pull-right" onClick = {this.props.onDelete.bind(null, index)}>del</button>
+                    <button  className="pull-right btn btn-warning btn-xs" onClick = {this.props.onDelete.bind(null, index)}>del</button>
                 </li>
             )
         })

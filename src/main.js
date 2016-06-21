@@ -7,9 +7,9 @@ import TodoForm from './components/todo-form.js'
 import TodoList from './components/todo.list.js'
 
 const initialTodos = [
-    {id:1, text: "Go to school", done: false, lineThrough: false},
-    {id:2, text: "play game", done: false, lineThrough: false},
-    {id:3, text: "Dota", done: false, lineThrough: false}
+    {id:1, text: "Go to school", done: false},
+    {id:2, text: "play game", done: false},
+    {id:3, text: "Dota", done: false}
 ]
 
 class App extends Component {
@@ -30,8 +30,7 @@ class App extends Component {
         let newTodos = {
             id: Date.now(),
             text: data,
-            done: false,
-            lineThrough: false
+            done: false
         }
 
         this.setState({
@@ -48,10 +47,9 @@ class App extends Component {
     }
 
     onClickAddStyle(index) {
-        var items = this.state.todos.filter(function(item, i) {
+        this.state.todos.map(function(item, i) {
             if (index === item) {
-                index.lineThrough = !item.lineThrough
-                return index === item;
+                index.done = !item.done
             }
         });
 
