@@ -11,6 +11,7 @@ export default class ToDoForm extends Component {
     onSubmit(e) {
         e.preventDefault()
         this.props.onFormSubmit(this.state.text)
+        this.setState({text: ''})
     }
 
     onTextChange(event) {
@@ -19,13 +20,18 @@ export default class ToDoForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.onSubmit.bind(this)}>
-                <input
-                    type="text"
-                    value={this.state.text}
-                    onChange={this.onTextChange.bind(this)}
-                />
-                <button type="submmit">Add</button>
+            <form onSubmit={this.onSubmit.bind(this)} className=''>
+                <div className="input-group">
+                    <input
+                        className="form-control"
+                        type="text"
+                        value={this.state.text}
+                        onChange={this.onTextChange.bind(this)}
+                    />
+                    <span className="input-group-btn">
+                        <button className="btn btn-default btn-success" type="submmit">Add</button>
+                    </span>
+                </div>
             </form>
         )
     }

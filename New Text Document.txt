@@ -1,9 +1,0 @@
-npm install -g webpack webpack-dev-server
-npm install --save-dev webpack webpack-dev-server
-
-
-#run server
-webpack-dev-server
-
-
-npm install --save react react-dom

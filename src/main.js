@@ -7,9 +7,9 @@ import TodoForm from './components/todo-form.js'
 import TodoList from './components/todo.list.js'
 
 const initialTodos = [
-    {id:1, text: "Go to school", done: false},
-    {id:2, text: "play game", done: false},
-    {id:3, text: "Dota", done: false}
+    {id:1, text: "Go to school", done: false, lineThrough: false},
+    {id:2, text: "play game", done: false, lineThrough: false},
+    {id:3, text: "Dota", done: false, lineThrough: false}
 ]
 
 class App extends Component {
@@ -22,6 +22,7 @@ class App extends Component {
 
         this.handleDelete       = this.handleDelete.bind(this)
         this.handleFormSubmit   = this.handleFormSubmit.bind(this)
+        this.onClickAddStyle    = this.onClickAddStyle.bind(this)
     }
 
     handleFormSubmit(data) {
@@ -30,6 +31,7 @@ class App extends Component {
             id: Date.now(),
             text: data,
             done: false,
+            lineThrough: false
         }
 
         this.setState({
@@ -45,14 +47,25 @@ class App extends Component {
         this.setState({ todos: newTodos })
     }
 
+    onClickAddStyle(index) {
+        var items = this.state.todos.filter(function(item, i) {
+            if (index === item) {
+                index.lineThrough = !item.lineThrough
+                return index === item;
+            }
+        });
+
+        this.setState({ todos: this.state.todos })
+    }
+
     render() {
         return (
             <div>
                 Hello my name is MCR082
                 < TodoForm onFormSubmit={this.handleFormSubmit} />
 
-                <h1> Todos </h1>
-                < TodoList todos={this.state.todos} onDelete={this.handleDelete} />
+                <h1> To Dos </h1>
+                < TodoList todos={this.state.todos} onDelete={this.handleDelete} onAddStyle={this.onClickAddStyle}  />
             </div>
         )
     }
